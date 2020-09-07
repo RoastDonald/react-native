@@ -1,10 +1,17 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function App() {
+  const [count, incrementCount] = useState('shit');
+
+  const handleClick = (): void => {
+    incrementCount(count + 1);
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text>{count}</Text>
+      <Button title='Change smth' onPress={handleClick} />
     </View>
   );
 }
@@ -12,7 +19,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },
